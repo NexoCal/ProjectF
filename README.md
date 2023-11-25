@@ -11,7 +11,7 @@ output member
 
 also code a bit messy might tidy it up after everything is set
 
-also also the code is still to specific so might generalize it to
+also also the code is still too specific so i might generalize it
 
 
 ## Class
