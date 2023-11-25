@@ -6,7 +6,7 @@ Mamdani Solver
 Currently MembershipGroup Class is for membership and are now separated from MamdaniSolver Class which capture the output membership
 to solve it later
 
-planning on merging them into on class after i get the solver working since as for right now it can only create rules and capturing
+planning on merging them into one class after i get the solver working since as for right now it can only create rules and capturing
 output member
 
 also code a bit messy might tidy it up after everything is set
