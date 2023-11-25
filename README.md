@@ -21,7 +21,7 @@ this class is responsible for membership ploting and ect
 it has this attribute and fucntion:
 - add_membership(String, np.arange, list) : adding membership (detect triat amd traps membership)
 - interp(input,np.arange) : use for fuzzification and capturing which member triggered it
-- show_plot(np.range) : show all membership in a plot
+- show_plot(np.arange) : show all membership in a plot
 - show_captured_member : show all membership that give fuzzy value > 0.0
 
 ### MamdaniSolver
