@@ -1,4 +1,8 @@
 # Read Me
+
+## Update
+fix absoluteSolver capture_output_member function missing output
+
 ## Progress
 Mamdani Solver
 
