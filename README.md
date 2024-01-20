@@ -1,10 +1,24 @@
 # Read Me
 
 ## Update
-fix absoluteSolver capture_output_member function missing output
+Alright getting the hang of it, MembershipGroup Class is already set and go problem now is on the
+Mamdani Solver. using Max - Min Inference method, antecedent will use OR logic while the consequence use
+AND logic.
+
+source : https://www.mathworks.com/help/fuzzy/fuzzy-inference-process.html
+
+Defuzzy will use centroid method
+
+Main problem:
+
+- How the rules will work
+- Getting the fuzzy point out of membershipGroup and how to use it
+
+Note:
+Might have to rebuild MamdaniSolver from start since it's a mess of a code
 
 ## Progress
-Mamdani Solver
+Mamdani Solver 
 
 ## Desc
 Currently MembershipGroup Class is for membership and are now separated from MamdaniSolver Class which capture the output membership
