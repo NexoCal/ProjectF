@@ -15,7 +15,7 @@ Main problem:
 - Getting the fuzzy point out of membershipGroup and how to use it
 
 Note:
-Might have to rebuild MamdaniSolver from start since it's a mess of a code
+Alright TestMamdani working and i can now extract some of step into a class function for mamdaniSolver
 
 ## Progress
 Mamdani Solver 
