@@ -15,7 +15,7 @@ Main problem:
 - Getting the fuzzy point out of membershipGroup and how to use it
 
 Note:
-Alright TestMamdani working and i can now extract some of step into a class function for mamdaniSolver
+Alright TestMamdani working and i can now extract some of step into a class function for mamdaniSolver 
 
 ## Progress
 Mamdani Solver 
@@ -43,4 +43,5 @@ it has this attribute and fucntion:
 - show_captured_member : show all membership that give fuzzy value > 0.0
 
 ### MamdaniSolver
-Currently working on it
+scrap the previous one and recoding a new one from scratch (no not scratch the programming language, i meant from the zero)
+since the old mamdaniSolver code was a mess to read and debug.

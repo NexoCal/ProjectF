@@ -30,34 +30,34 @@ ControlSystem.add_member('Increase',domainSystem,[40.,60.,100.5,100.5])
 # ControlSystem.show_plot(domainSystem)
 
 # let say Temp = 25 and Humid = 34
-TempScore = 22
-HumidityScore = 30
+TempScore = 40
+HumidityScore = 30.9
 
-Temp.interp(TempScore,domainTemp)
+Temp.captureInterp(TempScore,domainTemp)
 Temp.show_fuzzy_point()
 
-Humid.interp(HumidityScore,domainHumid)
-Humid.show_fuzzy_point()
+Humid.captureInterp(HumidityScore,domainHumid)
 
-lowScore = np.fmin(Temp.fuzzy_points[0].get('Low'),Humid.fuzzy_points[0].get('Low')) 
-mediumScore = np.fmin(Temp.fuzzy_points[1].get('Medium'),Humid.fuzzy_points[1].get('Medium'))
-highScore = np.fmin(Temp.fuzzy_points[2].get('High'),Humid.fuzzy_points[2].get('High'))
 
-print(lowScore)
-print(mediumScore)
-print(highScore)
+# lowScore = np.fmin(Temp.fuzzy_points[0].get('Low'),Humid.fuzzy_points[0].get('Low')) 
+# mediumScore = np.fmin(Temp.fuzzy_points[1].get('Medium'),Humid.fuzzy_points[1].get('Medium'))
+# highScore = np.fmin(Temp.fuzzy_points[2].get('High'),Humid.fuzzy_points[2].get('High'))
+
+# print(lowScore)
+# print(mediumScore)
+# print(highScore)
 
 # print(ControlSystem.member[0])
 
-activeLow = np.fmin(lowScore,ControlSystem.member[0].get('Decrease'))
-activeHigh = np.fmin(mediumScore,ControlSystem.member[1].get('Increase'))
+# activeLow = np.fmin(lowScore,ControlSystem.member[0].get('Decrease'))
+# activeHigh = np.fmin(mediumScore,ControlSystem.member[1].get('Increase'))
 
 # print(activeLow)
 # print(activeHigh)
 
-# fig_scale_x = 1.5
+# fig_scale_x = 1
 # fig_scale_y = 1
-# fig = plt.figure(figsize=(6.4 * fig_scale_x, 4.8 * fig_scale_y))
+# fig = plt.figure(figsize=(8 * fig_scale_x, 4* fig_scale_y))
 # row = 1
 # col = 1
 
@@ -70,7 +70,7 @@ activeHigh = np.fmin(mediumScore,ControlSystem.member[1].get('Increase'))
 
 # plt.show()
 
-# aggregatedControl = np.fmax(activeLow,activeHigh)
+# aggregatedControl = np.fmin(activeLow,activeHigh)
 
 # plt.plot(row, col, 1)
 # plt.title("Control Activation: Mamdani Inference Method")

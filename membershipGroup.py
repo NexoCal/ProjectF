@@ -24,7 +24,17 @@ class membershipGroup:
             key = list(variable)
             checker = skf.interp_membership(domain_space,variable.get(key[0]),value)
             self.captured_member.append(variable)
-            self.fuzzy_points.append({key[0]: checker})
+            print({key[0]: checker}, end=" ")
+        print("")
+
+    def captureInterp(self,value : int, domain_space):
+        for variable in self.member:
+            key = list(variable)
+            checker = skf.interp_membership(domain_space,variable.get(key[0]),value)
+
+            if checker != 0.0:
+                self.captured_member.append(variable)
+                self.fuzzy_points.append({key[0]: checker})
 
     def show_plot(self,domian_space):
         for variable in self.member:
