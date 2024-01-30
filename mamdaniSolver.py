@@ -77,7 +77,7 @@ class MamdaniInference:
         return scoreList
     
     def ProjectFuzzyScoreToOutput(self, ListofFuzzyScore: list, OutputMembership: membershipGroup):
-        SelectedMember = []
+        Projected = []
 
         for i in ListofFuzzyScore:
             tmpKey = list(i.keys())
@@ -86,9 +86,56 @@ class MamdaniInference:
                 keyChecker = list(j.keys())
                 keyChecker = keyChecker[0]
                 if tmpKey == keyChecker:
-                    SelectedMember.append(j)
+                    Projected.append(np.fmin(i.get(tmpKey),j.get(keyChecker)))
                     continue
+
+        return Projected
+
+
+    def PlotProjected(self, Projected: list, OutputDomain):
+        fig_scale_x = 1
+        fig_scale_y = 1
+        fig = plt.figure(figsize=(8 * fig_scale_x, 4* fig_scale_y))
+        row = 1
+        col = 1
+
+        plt.plot(row, col, 1)
+        # plt.title("Control Activation: Mamdani Inference Method")
+
+        numberDetail = 1
+        for i in Projected:
+            plt.plot(OutputDomain, i, label=numberDetail, marker=".")
+            numberDetail += 1
+        plt.legend(loc="upper left")
+
+        plt.show()
+    
+    def aggregated(self, Projected: list):
         
+        aggregatedProject = None
+        
+        for i in range(len(Projected)):
+            if i == 0:
+                aggregatedProject = Projected[i]
+                continue
+
+            tmp = np.fmax(aggregatedProject,Projected[i])
+            aggregatedProject = tmp
+        
+        return aggregatedProject
+
+    def PlotAggregated(self, aggregated, domain):
+        fig_scale_x = 1
+        fig_scale_y = 1
+        fig = plt.figure(figsize=(8 * fig_scale_x, 4* fig_scale_y))
+        row = 1
+        col = 1
+        plt.plot(row, col, 1)
+
+        plt.plot(domain, aggregated, marker=".")
+
+        plt.show()
+    
         
                 
         

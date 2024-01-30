@@ -101,4 +101,16 @@ if __name__ == "__main__":
     ScoreList = MamdaniSystem.getFuzzyScore(AgeMembership.fuzzy_points, HeightMembership.fuzzy_points, WeightMembership.fuzzy_points, OutputMembership)
     print(ScoreList)
 
-    MamdaniSystem.ProjectFuzzyScoreToOutput(ScoreList, OutputMembership)
+    ProjectedChart = MamdaniSystem.ProjectFuzzyScoreToOutput(ScoreList, OutputMembership)
+
+    MamdaniSystem.PlotProjected(ProjectedChart,domainO)
+
+    AggregatedChart = MamdaniSystem.aggregated(ProjectedChart)
+
+    MamdaniSystem.PlotAggregated(AggregatedChart, domainO)
+
+    defuzzyResult = skf.defuzz(domainO, AggregatedChart, 'centroid')
+    print(defuzzyResult)
+
+    OutputMembership.captureInterp(defuzzyResult, domainO)
+    OutputMembership.show_fuzzy_point()

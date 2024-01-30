@@ -1,24 +1,20 @@
 # Read Me
 
 ## Update
-Alright getting the hang of it, MembershipGroup Class is already set and go problem now is on the
-Mamdani Solver. using Max - Min Inference method, antecedent will use OR logic while the consequence use
-AND logic.
+Alright all is set now just to make it work for T2 till T6
 
 source : https://www.mathworks.com/help/fuzzy/fuzzy-inference-process.html
 
 Defuzzy will use centroid method
 
-Main problem:
-
-- How the rules will work
-- Getting the fuzzy point out of membershipGroup and how to use it
+To Do:
+- Clean up the code and optimize it
 
 Note:
-Alright TestMamdani working and i can now extract some of step into a class function for mamdaniSolver 
+NewMamdaniTest is the one using custom made class
 
 ## Progress
-Mamdani Solver 
+Optimizing and Cleaning up
 
 ## Desc
 Currently MembershipGroup Class is for membership and are now separated from MamdaniSolver Class which capture the output membership
@@ -33,15 +29,40 @@ also also the code is still too specific so i might generalize it
 
 
 ## Class
-### MembershipGroup Class
+### membershipGroup Class
 this class is responsible for membership ploting and ect
 
-it has this attribute and fucntion:
-- add_membership(String, np.arange, list) : adding membership (detect triat amd traps membership)
-- interp(input,np.arange) : use for fuzzification and capturing which member triggered it
-- show_plot(np.arange) : show all membership in a plot
-- show_captured_member : show all membership that give fuzzy value > 0.0
+it has this attribute and function:
 
-### MamdaniSolver
-scrap the previous one and recoding a new one from scratch (no not scratch the programming language, i meant from the zero)
-since the old mamdaniSolver code was a mess to read and debug.
+Attribute:
+- captured_member : where captured membership is stored after using captureInterp function
+- member : where added member is stored
+- fuzzy_points : where captured membership is stored after using captureInterp function
+
+Function:
+- add_member(self,membername : str, domain_space, point : list )
+- interp(self,value : int, domain_space)
+- captureInterp(self,value : int, domain_space)
+- show_plot(self,domian_space)
+- show_capture_member(self)
+- show_fuzzy_point(self)
+- getCapturedMember(self)
+
+### mamdaniSolver
+This class is responsible for mamdani inference
+
+it has this attribute and function:
+
+Attribute:
+- rules : where all the rules is stored
+- captured_output : where output rule is stored adter using evaluateRules function
+
+Function:
+- addRule(self,x: list, y: str)
+- showRules()
+- evaluateRules(self, Age: list, Height: list, Weight: list)
+- getFuzzyScore(self,Age: list, Height: list, Weight: list, Output: membershipGroup)
+- ProjectFuzzyScoreToOutput(self, ListofFuzzyScore: list, OutputMembership: membershipGroup)
+- PlotProjected(self, Projected: list, OutputDomain)
+- aggregated(self, Projected: list)
+- PlotAggregated(self, aggregated, domain)
