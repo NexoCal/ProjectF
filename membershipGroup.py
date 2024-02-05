@@ -19,7 +19,7 @@ class membershipGroup:
             self.member.append(new_member)
 
 
-    def interp(self,value : int, domain_space):
+    def interp(self,value : float, domain_space):
         for variable in self.member:
             key = list(variable)
             checker = skf.interp_membership(domain_space,variable.get(key[0]),value)
@@ -27,7 +27,7 @@ class membershipGroup:
             print({key[0]: checker}, end=" ")
         print("")
 
-    def captureInterp(self,value : int, domain_space):
+    def captureInterp(self,value : float, domain_space):
         for variable in self.member:
             key = list(variable)
             checker = skf.interp_membership(domain_space,variable.get(key[0]),value)

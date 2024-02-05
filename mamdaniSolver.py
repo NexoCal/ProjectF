@@ -67,13 +67,15 @@ class MamdaniInference:
         keyList.append(WeightKey)
         
         counter = 0
-        for i in range(len(Height)):
-            firstKey = keyList[1][i]
-            for j in range(len(Weight)):
-                secondKey = keyList[2][j]
-                Score = np.fmax(Dict.get(firstKey),Dict.get(secondKey))
-                scoreList.append({self.captured_output[counter]: Score})
-                counter += 1
+        for i in range (len(Age)):
+            zeroKey = keyList[0][i]
+            for j in range(len(Height)):
+                firstKey = keyList[1][j]
+                for k in range(len(Weight)):
+                    secondKey = keyList[2][k]
+                    Score = np.fmin(Dict.get(zeroKey),(np.fmin(Dict.get(firstKey),Dict.get(secondKey))))
+                    scoreList.append({self.captured_output[counter]: Score})
+                    counter += 1
         return scoreList
     
     def ProjectFuzzyScoreToOutput(self, ListofFuzzyScore: list, OutputMembership: membershipGroup):
