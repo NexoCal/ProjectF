@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from membershipGroup import membershipGroup
 from mamdaniSolver import MamdaniInference
 import MembershipBoy
+import pandas as pd
 
 # Age Membership
 domainAge = np.arange(0.,25.1,0.1)
@@ -128,12 +129,11 @@ for i in range(len(AgeOutput)):
     MamdaniSystem.PlotAggregated(AggregatedChart, DomainOutput)
 
     defuzzyResult = skf.defuzz(DomainOutput, AggregatedChart, 'centroid')
-    print(defuzzyResult)
 
-
-    print("Result:", end="\n")
+    print("Result:")
+    print("Z Value:",defuzzyResult)
+    OutputMembership.show_plot()
     OutputMembership.captureInterp(defuzzyResult, DomainOutput)
     OutputMembership.show_fuzzy_point()
-
 
     MamdaniSystem.captured_output = []
