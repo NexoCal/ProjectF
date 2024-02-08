@@ -127,13 +127,12 @@ for i in range(len(AgeOutput)):
     AggregatedChart = MamdaniSystem.aggregated(ProjectedChart)
 
     MamdaniSystem.PlotAggregated(AggregatedChart, DomainOutput)
-
     defuzzyResult = skf.defuzz(DomainOutput, AggregatedChart, 'centroid')
 
     print("Result:")
     print("Z Value:",defuzzyResult)
-    OutputMembership.show_plot()
+    OutputMembership.show_plot(DomainOutput)
     OutputMembership.captureInterp(defuzzyResult, DomainOutput)
     OutputMembership.show_fuzzy_point()
-
+    
     MamdaniSystem.captured_output = []

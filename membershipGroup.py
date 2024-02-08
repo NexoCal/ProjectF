@@ -53,6 +53,9 @@ class membershipGroup:
 
     def show_fuzzy_point(self):
         print(self.fuzzy_points)
+
+    def get_fuzzy_point(self):
+        return self.fuzzy_points
     
     def getCapturedMember(self):
         tmp = []
@@ -62,3 +65,7 @@ class membershipGroup:
 
         return tmp
     
+    def reset(self):
+        self.captured_member = []
+        self.member = []
+        self.fuzzy_points = []
