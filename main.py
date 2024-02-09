@@ -39,6 +39,7 @@ for i in Umur:
 def AgeCheck(Age: float):
     AgeMembership.captureInterp(Age, domainAge)
     AgeMembership.show_fuzzy_point()
+    AgeMembership.show_plot(domainAge)
 
     return AgeMembership.getCapturedMember()
 
@@ -115,7 +116,7 @@ for i in range(len(AgeOutput)):
     fuzzyInterp(HeightInput, WeightInput)
 
     MamdaniSystem.evaluateRules([AgeOutput[i]], HeightMembership.getCapturedMember(), WeightMembership.getCapturedMember())
-    print(MamdaniSystem.captured_output)
+    # print(MamdaniSystem.captured_output)
 
     ScoreList = MamdaniSystem.getFuzzyScore([AgeMembership.fuzzy_points[i]], HeightMembership.fuzzy_points, WeightMembership.fuzzy_points, OutputMembership)
     print(ScoreList)
@@ -131,8 +132,8 @@ for i in range(len(AgeOutput)):
 
     print("Result:")
     print("Z Value:",defuzzyResult)
-    OutputMembership.show_plot(DomainOutput)
     OutputMembership.captureInterp(defuzzyResult, DomainOutput)
     OutputMembership.show_fuzzy_point()
+    print("")
     
     MamdaniSystem.captured_output = []
