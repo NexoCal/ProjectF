@@ -134,6 +134,10 @@ for i in range(len(AgeOutput)):
     print("Z Value:",defuzzyResult)
     OutputMembership.captureInterp(defuzzyResult, DomainOutput)
     OutputMembership.show_fuzzy_point()
+
+    OutputInterp = OutputMembership.get_fuzzy_point()
+    KeyOut = OutputMembership.getCapturedMember()
+    OutputMembership.show_plot_withVal(DomainOutput,defuzzyResult,OutputInterp,KeyOut)
     print("")
     
     MamdaniSystem.captured_output = []

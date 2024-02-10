@@ -43,6 +43,21 @@ class membershipGroup:
             plt.fill_between(domian_space,variable.get(key[0]),alpha=0.2)
         plt.show()
 
+
+    def show_plot_withVal(self,domian_space,ZValues,MeanVal: list,KeyVal: list):
+        for variable in self.member:
+            key = list(variable)
+            plt.plot(domian_space,variable.get(key[0]),linewidth=1.5)
+            plt.fill_between(domian_space,variable.get(key[0]),alpha=0.2)
+        
+        colors = ['ro','bo']
+        
+        for i in range(len(MeanVal)):
+            plt.plot(ZValues,MeanVal[i].get(KeyVal[i]),colors[i])
+            plt.annotate(str(MeanVal[i].get(KeyVal[i])),(ZValues,MeanVal[i].get(KeyVal[i])))
+
+        plt.show()
+
     def show_capture_member(self):
         tmp = []
         for variable in self.captured_member:
