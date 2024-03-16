@@ -20,14 +20,14 @@ class MamdaniInference:
         #Show how many ruies in total
         print("Rules :", len(self.rules))
 
-    def evaluateRules(self, Age: list, Height: list, Weight: list):
+    def evaluateRules(self, Age: list, Weight: list, Height: list):
         antecedentList = []
         cap = []
 
         for i in range(len(Age)):
-            for j in range(len(Height)):
-                for k in range(len(Weight)):
-                    antecedent = [Age[i], Height[j], Weight[k]]
+            for j in range(len(Weight)):
+                for k in range(len(Height)):
+                    antecedent = [Age[i], Weight[j], Height[k]]
                     antecedentList.append(antecedent)
                     
         for rule in self.rules:
@@ -40,7 +40,7 @@ class MamdaniInference:
         for i in cap:
             self.captured_output.append(i)
 
-    def getFuzzyScore(self,Age: list, Height: list, Weight: list, Output: membershipGroup):
+    def getFuzzyScore(self,Age: list, Weight: list, Height: list, Output: membershipGroup):
         Dict = {}
         keyList = []
         scoreList = []
@@ -69,10 +69,10 @@ class MamdaniInference:
         counter = 0
         for i in range (len(Age)):
             zeroKey = keyList[0][i]
-            for j in range(len(Height)):
-                firstKey = keyList[1][j]
-                for k in range(len(Weight)):
-                    secondKey = keyList[2][k]
+            for j in range(len(Weight)):
+                firstKey = keyList[2][j]
+                for k in range(len(Height)):
+                    secondKey = keyList[1][k]
                     Score = np.fmin(Dict.get(zeroKey),(np.fmin(Dict.get(firstKey),Dict.get(secondKey))))
                     scoreList.append({self.captured_output[counter]: Score})
                     counter += 1

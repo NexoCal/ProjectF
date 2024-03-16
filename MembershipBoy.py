@@ -26,7 +26,7 @@ HeightMembershipT2.add_member('H',domainHeightT2,[72.,74.,100,100])
 
 
 #=====[T3 HeightMembership]=====#
-domainHeightT3 = np.arange(61.7,79.7,0.1)
+domainHeightT3 = np.arange(0.0,79.7,0.1)
 HeightMembershipT3 = membershipGroup()
 
 HeightMembershipT3.add_member('SS',domainHeightT3,[0.,0.,62.7,65.2])
@@ -36,7 +36,7 @@ HeightMembershipT3.add_member('H',domainHeightT3,[76.5,78.7,100,100])
 
 
 #=====[T4 HeightMembership]=====#
-domainHeightT4 = np.arange(65.4,84.,0.1)
+domainHeightT4 = np.arange(2.0,84.,0.1)
 HeightMembershipT4 = membershipGroup()
 
 HeightMembershipT4.add_member('SS',domainHeightT4,[0.,0.,66.4,68.6])
@@ -69,13 +69,13 @@ HeightMembershipT6.add_member('H',domainHeightT6,[93.9,97.,100,100])
 # Weigth Membership
 
 #=====[T1 WeightMembership]=====#
-domainWeightT1 = np.arange(1.,10.,0.1)
+domainWeightT1 = np.arange(1.,6.,0.1)
 WeightMembershipT1 = membershipGroup()
 
-WeightMembershipT1.add_member('SU',domainWeightT1,[0.,0.,2.1,4.4])
-WeightMembershipT1.add_member('U',domainWeightT1,[2.1,4.4,5.,5.7])
-WeightMembershipT1.add_member('I',domainWeightT1,[5.,5.7,8.,9.])
-WeightMembershipT1.add_member('PO',domainWeightT1,[8.,9.,10,10])
+WeightMembershipT1.add_member('SU',domainWeightT1,[0.,0.,1.9,2.2])
+WeightMembershipT1.add_member('U',domainWeightT1,[1.9,2.2,2.5,2.8])
+WeightMembershipT1.add_member('I',domainWeightT1,[2.5,2.8,3.9,4.7])
+WeightMembershipT1.add_member('PO',domainWeightT1,[3.9,4.7,6,6])
 
 
 #=====[T2 WeightMembership]=====#
@@ -99,7 +99,7 @@ WeightMembershipT3.add_member('PO',domainWeightT3,[11.,12.3,13.3,13.3])
 
 
 #=====[T4 WeightMembership]=====#
-domainWeightT4 = np.arange(5.6,14.3,0.1)
+domainWeightT4 = np.arange(0.0,14.3,0.1)
 WeightMembershipT4 = membershipGroup()
 
 WeightMembershipT4.add_member('SU',domainWeightT4,[0.,0.,6.6,6.9])

@@ -20,14 +20,14 @@ AgeMembership.add_member('T6',domainAge,[15.,18.,21.,24.1])
 MamdaniSystem = MamdaniInference()
 
 Umur = ['T1','T2','T3','T4','T5','T6']
+Berat = ['SU','U','I','PO']
 Tinggi = ['SS','S','NH','H']
-Berat = ['SU','U','I','PRO']
-OutPut = ['SW','SW','W','W','SW','W','G','G','W','G','G','G','OB','OV','PRO','G']
+OutPut = ['SW','SW','W','W','SW','W','G','G','W','G','G','G','OB','OV','PRO','PRO']
 counter = 0
 
 for i in Umur:
-    for j in Tinggi:
-        for k in Berat:
+    for j in Berat:
+        for k in Tinggi:
             tmp = [i,j,k]
             MamdaniSystem.addRule(tmp,OutPut[counter])
             counter += 1
@@ -46,11 +46,11 @@ def AgeCheck(Age: float):
 
 def fuzzyInterp(Height, Weight):
     
-    HeightMembership.captureInterp(Height, DomainHeight)
-    HeightMembership.show_fuzzy_point()
-    
     WeightMembership.captureInterp(Weight, DomainWeight)
     WeightMembership.show_fuzzy_point()
+    
+    HeightMembership.captureInterp(Height, DomainHeight)
+    HeightMembership.show_fuzzy_point()
 
 
 AgeInput, WeightInput, HeightInput = map(float,input("Umur, Berat dan Tinggi: ").split(" "))
@@ -115,10 +115,10 @@ for i in range(len(AgeOutput)):
     
     fuzzyInterp(HeightInput, WeightInput)
 
-    MamdaniSystem.evaluateRules([AgeOutput[i]], HeightMembership.getCapturedMember(), WeightMembership.getCapturedMember())
-    # print(MamdaniSystem.captured_output)
+    MamdaniSystem.evaluateRules([AgeOutput[i]], WeightMembership.getCapturedMember(), HeightMembership.getCapturedMember())
+    print(MamdaniSystem.captured_output)
 
-    ScoreList = MamdaniSystem.getFuzzyScore([AgeMembership.fuzzy_points[i]], HeightMembership.fuzzy_points, WeightMembership.fuzzy_points, OutputMembership)
+    ScoreList = MamdaniSystem.getFuzzyScore([AgeMembership.fuzzy_points[i]], WeightMembership.fuzzy_points, HeightMembership.fuzzy_points, OutputMembership)
     print(ScoreList)
 
     ProjectedChart = MamdaniSystem.ProjectFuzzyScoreToOutput(ScoreList, OutputMembership)
