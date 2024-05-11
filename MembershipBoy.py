@@ -6,17 +6,17 @@ from membershipGroup import membershipGroup
 # Height Membership
 
 #=====[T1 HeightMembership]=====#
-domainHeightT1 = np.arange(40.,70.,0.1)
+domainHeightT1 = np.arange(42.,70.,0.1)
 HeightMembershipT1 = membershipGroup()
 
-HeightMembershipT1.add_member('SS',domainHeightT1,[0.,0.,44.,55.])
-HeightMembershipT1.add_member('S',domainHeightT1,[44.,55.,57.,59.])
-HeightMembershipT1.add_member('NH',domainHeightT1,[57.,59.,65.5,67.6])
-HeightMembershipT1.add_member('H',domainHeightT1,[65.5,67.6,100,100])
+HeightMembershipT1.add_member('SS',domainHeightT1,[0.,0.,43.,45.])
+HeightMembershipT1.add_member('S',domainHeightT1,[43.,45.,46.,49.])
+HeightMembershipT1.add_member('NH',domainHeightT1,[46.,49.,55.6,57.])
+HeightMembershipT1.add_member('H',domainHeightT1,[55.6,57.,100,100])
 
 
 #=====[T2 HeightMembership]=====#
-domainHeightT2 = np.arange(54.6,75.,0.1)
+domainHeightT2 = np.arange(54.,75.,0.1)
 HeightMembershipT2 = membershipGroup()
 
 HeightMembershipT2.add_member('SS',domainHeightT2,[0.,0.,55.,57.6])
@@ -26,7 +26,7 @@ HeightMembershipT2.add_member('H',domainHeightT2,[72.,74.,100,100])
 
 
 #=====[T3 HeightMembership]=====#
-domainHeightT3 = np.arange(0.0,79.7,0.1)
+domainHeightT3 = np.arange(61.7,79.7,0.1)
 HeightMembershipT3 = membershipGroup()
 
 HeightMembershipT3.add_member('SS',domainHeightT3,[0.,0.,62.7,65.2])
@@ -36,7 +36,7 @@ HeightMembershipT3.add_member('H',domainHeightT3,[76.5,78.7,100,100])
 
 
 #=====[T4 HeightMembership]=====#
-domainHeightT4 = np.arange(2.0,84.,0.1)
+domainHeightT4 = np.arange(63.4,84.,0.1)
 HeightMembershipT4 = membershipGroup()
 
 HeightMembershipT4.add_member('SS',domainHeightT4,[0.,0.,66.4,68.6])
@@ -56,7 +56,7 @@ HeightMembershipT5.add_member('H',domainHeightT5,[87.7,90.4,100,100])
 
 
 #=====[T6 HeightMembership]=====#
-domainHeightT6 = np.arange(64.,98.,0.1)
+domainHeightT6 = np.arange(74.,98.,0.1)
 HeightMembershipT6 = membershipGroup()
 
 HeightMembershipT6.add_member('SS',domainHeightT6,[0.,0.,75.,78.7])
@@ -99,7 +99,7 @@ WeightMembershipT3.add_member('PO',domainWeightT3,[11.,12.3,13.3,13.3])
 
 
 #=====[T4 WeightMembership]=====#
-domainWeightT4 = np.arange(0.0,14.3,0.1)
+domainWeightT4 = np.arange(5.6,14.3,0.1)
 WeightMembershipT4 = membershipGroup()
 
 WeightMembershipT4.add_member('SU',domainWeightT4,[0.,0.,6.6,6.9])

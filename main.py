@@ -44,8 +44,14 @@ def AgeCheck(Age: float):
     return AgeMembership.getCapturedMember()
 
 
-def fuzzyInterp(Height, Weight):
-    
+def fuzzyInterp(Height, Weight, HeightMin, WeightMin):
+
+    if Height < HeightMin:
+        Height = HeightMin + 0.1
+    if Weight < WeightMin:
+        Weight = WeightMin + 0.1
+
+
     WeightMembership.captureInterp(Weight, DomainWeight)
     WeightMembership.show_fuzzy_point()
     
@@ -57,6 +63,9 @@ AgeInput, WeightInput, HeightInput = map(float,input("Umur, Berat dan Tinggi: ")
 
 AgeOutput = AgeCheck(AgeInput)
 for i in range(len(AgeOutput)):
+
+    domainRangeMinHeight = 0.0
+    domainRangeMinWeight = 0.0
     
     if AgeOutput[i] == 'T1':
         HeightMembership = MembershipBoy.HeightMembershipT1
@@ -67,6 +76,9 @@ for i in range(len(AgeOutput)):
         DomainWeight = MembershipBoy.domainWeightT1
         DomainOutput = MembershipBoy.domainOT1
 
+        domainRangeMinHeight = 43.0
+        domainRangeMinWeight = 1.0
+
     elif AgeOutput[i] == 'T2':
         HeightMembership = MembershipBoy.HeightMembershipT2
         WeightMembership = MembershipBoy.WeightMembershipT2
@@ -75,6 +87,9 @@ for i in range(len(AgeOutput)):
         DomainHeight = MembershipBoy.domainHeightT2
         DomainWeight = MembershipBoy.domainWeightT2
         DomainOutput = MembershipBoy.domainOT2
+
+        domainRangeMinHeight = 54.0
+        domainRangeMinWeight = 4.0
 
     elif AgeOutput[i] == 'T3':
         HeightMembership = MembershipBoy.HeightMembershipT3
@@ -85,6 +100,9 @@ for i in range(len(AgeOutput)):
         DomainWeight = MembershipBoy.domainWeightT3
         DomainOutput = MembershipBoy.domainOT3
 
+        domainRangeMinHeight = 61.7
+        domainRangeMinWeight = 5.0
+
     elif AgeOutput[i] == 'T4':
         HeightMembership = MembershipBoy.HeightMembershipT4
         WeightMembership = MembershipBoy.WeightMembershipT4
@@ -93,6 +111,9 @@ for i in range(len(AgeOutput)):
         DomainHeight = MembershipBoy.domainHeightT4
         DomainWeight = MembershipBoy.domainWeightT4
         DomainOutput = MembershipBoy.domainOT4
+
+        domainRangeMinHeight = 63.4
+        domainRangeMinWeight = 5.6
 
     elif AgeOutput[i] == 'T5':
         HeightMembership = MembershipBoy.HeightMembershipT5
@@ -103,6 +124,9 @@ for i in range(len(AgeOutput)):
         DomainWeight = MembershipBoy.domainWeightT5
         DomainOutput = MembershipBoy.domainOT5
 
+        domainRangeMinHeight = 68.6
+        domainRangeMinWeight = 6.0
+
     elif AgeOutput[i] == 'T6':
         HeightMembership = MembershipBoy.HeightMembershipT6
         WeightMembership = MembershipBoy.WeightMembershipT6
@@ -112,8 +136,11 @@ for i in range(len(AgeOutput)):
         DomainWeight = MembershipBoy.domainWeightT6
         DomainOutput = MembershipBoy.domainOT6
 
+        domainRangeMinHeight = 74.0
+        domainRangeMinWeight = 7.0
+
     
-    fuzzyInterp(HeightInput, WeightInput)
+    fuzzyInterp(HeightInput, WeightInput,domainRangeMinHeight,domainRangeMinWeight)
 
     MamdaniSystem.evaluateRules([AgeOutput[i]], WeightMembership.getCapturedMember(), HeightMembership.getCapturedMember())
     print(MamdaniSystem.captured_output)
